@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PotDl setup and help</title>
+    <link rel="icon" href="icons/icon48.png" />
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body>
+    <main>
+      <header class="brand brand-large">
+        <img src="icons/icon128.png" alt="" />
+        <div class="brand-text">
+          <h1>PotDl</h1>
+          <p class="tagline">Open video links in PotPlayer with the right subtitles already loaded.</p>
+        </div>
+      </header>
+
+      <p id="allSet" class="status success" hidden>✓ You're all set. Right-click a video link to try it.</p>
+
+      <section class="card step" id="stepHelper">
+        <span class="step-mark" aria-hidden="true">1</span>
+        <div class="step-body">
+          <h2>Connect PotPlayer</h2>
+          <p class="step-text">PotDl needs one small file to talk to PotPlayer.</p>
+          <p id="helperMessage" class="status"></p>
+          <div id="helperInstall" hidden>
+            <a class="button" href="https://github.com/Ionlyblank/PotDl/releases/latest/download/PotDl-Setup.exe">
+              Download helper
+            </a>
+            <p class="field-note">
+              Open the downloaded file and this page updates by itself. If Chrome or Windows warns about a new app,
+              choose Keep, then More info and Run anyway.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card step" id="stepKey">
+        <span class="step-mark" aria-hidden="true">2</span>
+        <div class="step-body">
+          <h2>Add your SubDL key</h2>
+          <p class="step-text">PotDl finds subtitles through SubDL. A free key allows about 50 downloads a day.</p>
+          <div id="keyField"></div>
+        </div>
+      </section>
+
+      <section class="card step" id="stepLanguage">
+        <span class="step-mark" aria-hidden="true">3</span>
+        <div class="step-body">
+          <h2>Choose your language</h2>
+          <label class="field">
+            <span class="field-label">Subtitle language</span>
+            <select id="language"></select>
+          </label>
+          <span id="languageSaved" class="saved" role="status"></span>
+        </div>
+      </section>
+
+      <section class="card tips">
+        <h2>Good to know</h2>
+        <ul>
+          <li><strong>Open a video:</strong> right-click a link and choose Open in PotPlayer.</li>
+          <li><strong>Wrong subtitle?</strong> Click the PotDl icon and pick another one. The video keeps playing.</li>
+          <li><strong>Wrong video?</strong> Click the pencil in that list to edit the title, season or episode.</li>
+          <li>
+            <strong>Subtitle not selected?</strong> In PotPlayer, press F5, open Subtitles, then Language/Sync/Other,
+            and set Subtitle priority to Prefer external subtitles.
+          </li>
+          <li><strong>Removing PotDl:</strong> uninstall PotDl helper from Installed apps in Windows Settings.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Need help?</h2>
+        <p class="contact">
+          Questions, problems or ideas? Email
+          <a href="mailto:tripuzzle.app@gmail.com">tripuzzle.app@gmail.com</a>
+        </p>
+      </section>
+
+      <p class="legal">PotDl is an independent project and isn't affiliated with PotPlayer or SubDL.</p>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

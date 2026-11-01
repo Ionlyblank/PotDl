@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PotDl subtitles</title>
+    <link rel="icon" href="icons/icon48.png" />
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body class="popup">
+    <main>
+      <header class="brand">
+        <img src="icons/icon48.png" alt="" />
+        <div class="brand-text">
+          <h1 id="videoTitle" class="video-title" dir="auto">PotDl</h1>
+          <p id="videoMeta" class="tagline"></p>
+        </div>
+        <button id="editSearch" class="icon-button" type="button" aria-label="Edit search" title="Edit search" hidden>
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+          </svg>
+        </button>
+      </header>
+
+      <form id="search" class="card" hidden>
+        <label class="field"><span class="field-label">Title</span><input id="title" dir="auto" required /></label>
+        <div class="row">
+          <label class="field"><span class="field-label">Season</span><input id="season" type="number" min="1" /></label>
+          <label class="field"><span class="field-label">Episode</span><input id="episode" type="number" min="1" /></label>
+          <button id="searchButton" type="submit">Search</button>
+        </div>
+      </form>
+
+      <p id="status" class="status" role="status"></p>
+      <ul id="results"></ul>
+
+      <footer class="page-footer">
+        <button id="openSetup" class="link" type="button">Setup and help</button>
+        <button id="noSubs" class="secondary" type="button" hidden>Play without subtitles</button>
+      </footer>
+    </main>
+    <script type="module" src="subtitles.js"></script>
+  </body>
+</html>
