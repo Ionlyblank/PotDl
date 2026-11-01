@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Open video links in PotPlayer with the right subtitles already loaded, in any language SubDL offers.",
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0IzJQAMmcwB0nbdUN1AjNIIsXUGPK/XM82f4q0m34JhKg5bSHdOXhdBLuFKiuy2rfSi28e3Zfyxs322Oh1vaoGXI5IxqsBRE/y6WlIIBQ/uNSnC2wxi/OJLKoq7moaM6vDFlyVDy1JczStmX40FpjJzDfgLpaBl472+581CiH8vU3ICAzASClAFBkA5rHPw4/ikH5IYc6L/IsHhM0tuKfXzbR7hVbgs2Fh0jUEeyAgWwJldNlophgDPfhhbeqFN3ycoO6tVHp+kGsQmVUf4JNUQo3mzJdN++oPcY+Yr8waR9I/hR6/OYAeNYqIZPyZ8iP2PHpFyujkYWfOwhGHRXqwIDAQAB",
-  "permissions": ["contextMenus", "activeTab", "scripting", "storage", "nativeMessaging"],
+  "permissions": ["contextMenus", "activeTab", "scripting", "storage", "downloads", "downloads.ui", "nativeMessaging"],
   "host_permissions": ["https://api.subdl.com/*", "https://dl.subdl.com/*"],
   "background": {
     "service_worker": "background.js",

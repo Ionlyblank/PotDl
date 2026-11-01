@@ -33,6 +33,12 @@ function setBusy(busy) {
   for (const button of document.querySelectorAll(".result, #searchButton, #noSubs")) button.disabled = busy;
 }
 
+async function currentTabId() {
+  if (isWindow) return session.tabId;
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  return tab?.id ?? session.tabId;
+}
+
 function showResultCount() {
   const count = lastResults.length;
   setStatus(`${count} ${languageName} subtitle${count === 1 ? "" : "s"}`);
@@ -121,7 +127,7 @@ async function play(choice) {
     const subtitle = choice
       ? await downloadSubtitle(choice, currentMedia(), settings.language)
       : undefined;
-    const outcome = await playInPotPlayer(session.url, subtitle, session.tabId, {
+    const outcome = await playInPotPlayer(session.url, subtitle, await currentTabId(), {
       language: settings.language,
       replace: session.changing,
     });
@@ -180,15 +186,13 @@ async function startPopup() {
   setStatus("Looking for your video...");
   const { session: found, isPlaying, helperReady } = await loadToolbarSession();
 
-  if (!helperReady) {
-    setStatus("PotPlayer isn't connected yet. Open Setup and help to finish.", "error");
-  } else if (!settings.apiKey) {
+  if (!settings.apiKey) {
     setStatus("Add your SubDL key in Setup and help to find subtitles.", "error");
   } else if (!found) {
-    setStatus("Nothing is playing. Right-click a video link and choose Open in PotPlayer.");
+    setStatus("Nothing opened yet. Right-click a video link and choose Open in PotPlayer.");
   } else {
     session = { ...found, changing: true };
-    showVideo(session.media, isPlaying ? "" : "Last opened");
+    showVideo(session.media, helperReady && !isPlaying ? "Last opened" : "");
     fillForm(session.media);
     editButton.hidden = false;
     if (session.subtitles?.length && session.language === settings.language) {

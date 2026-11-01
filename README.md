@@ -10,9 +10,11 @@ wrong one, click the PotDl icon and pick another. The video keeps playing.
 
 - Windows with PotPlayer installed
 - A free [SubDL API key](https://subdl.com/api-doc)
-- The PotDl helper, a small program that lets Chrome talk to PotPlayer
 
-## Helper
+## Optional helper
+
+PotPlayer can't read subtitles from a folder with spaces or non-English letters in its name. If your Windows user
+name or Downloads folder has them, PotDl will tell you, and this small helper fixes it.
 
 [Download PotDl-Setup.exe](https://github.com/Ionlyblank/PotDl/releases/latest/download/PotDl-Setup.exe) and open it.
 It needs no admin rights and installs for the current user only. Because the file isn't code signed yet, Chrome or

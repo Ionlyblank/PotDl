@@ -19,26 +19,8 @@
 
       <p id="allSet" class="status success" hidden>✓ You're all set. Right-click a video link to try it.</p>
 
-      <section class="card step" id="stepHelper">
-        <span class="step-mark" aria-hidden="true">1</span>
-        <div class="step-body">
-          <h2>Connect PotPlayer</h2>
-          <p class="step-text">PotDl needs one small file to talk to PotPlayer.</p>
-          <p id="helperMessage" class="status"></p>
-          <div id="helperInstall" hidden>
-            <a class="button" href="https://github.com/Ionlyblank/PotDl/releases/latest/download/PotDl-Setup.exe">
-              Download helper
-            </a>
-            <p class="field-note">
-              Open the downloaded file and this page updates by itself. If Chrome or Windows warns about a new app,
-              choose Keep, then More info and Run anyway.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section class="card step" id="stepKey">
-        <span class="step-mark" aria-hidden="true">2</span>
+        <span class="step-mark" aria-hidden="true">1</span>
         <div class="step-body">
           <h2>Add your SubDL key</h2>
           <p class="step-text">PotDl finds subtitles through SubDL. A free key allows about 50 downloads a day.</p>
@@ -47,7 +29,7 @@
       </section>
 
       <section class="card step" id="stepLanguage">
-        <span class="step-mark" aria-hidden="true">3</span>
+        <span class="step-mark" aria-hidden="true">2</span>
         <div class="step-body">
           <h2>Choose your language</h2>
           <label class="field">
@@ -61,15 +43,29 @@
       <section class="card tips">
         <h2>Good to know</h2>
         <ul>
-          <li><strong>Open a video:</strong> right-click a link and choose Open in PotPlayer.</li>
+          <li>
+            <strong>Open a video:</strong> right-click a link and choose Open in PotPlayer. If Chrome asks to open
+            PotPlayer, tick Always allow so it won't ask again on that site.
+          </li>
           <li><strong>Wrong subtitle?</strong> Click the PotDl icon and pick another one. The video keeps playing.</li>
           <li><strong>Wrong video?</strong> Click the pencil in that list to edit the title, season or episode.</li>
           <li>
             <strong>Subtitle not selected?</strong> In PotPlayer, press F5, open Subtitles, then Language/Sync/Other,
             and set Subtitle priority to Prefer external subtitles.
           </li>
-          <li><strong>Removing PotDl:</strong> uninstall PotDl helper from Installed apps in Windows Settings.</li>
+          <li><strong>Where subtitles go:</strong> PotDl keeps them in Downloads\PotDl and removes them after 3 days.</li>
         </ul>
+      </section>
+
+      <section class="card">
+        <h2>Subtitles not loading?</h2>
+        <p class="contact">
+          PotPlayer can't read subtitles if your Windows user name or Downloads folder has spaces or non-English
+          letters. PotDl tells you if this affects you. To fix it, install the small
+          <a href="https://github.com/Ionlyblank/PotDl/releases/latest/download/PotDl-Setup.exe">PotDl helper</a>.
+          If Chrome or Windows warns about a new app, choose Keep, then More info and Run anyway. You can remove it
+          from Installed apps in Windows Settings.
+        </p>
       </section>
 
       <section class="card">

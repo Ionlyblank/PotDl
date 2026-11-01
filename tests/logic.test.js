@@ -3,7 +3,7 @@ import { deflateRawSync } from "node:zlib";
 import test from "node:test";
 
 import { detectMedia, fileNameFromUrl, parseText } from "../lib/parse.js";
-import { chooseVideo, subtitleFileName } from "../lib/player.js";
+import { chooseVideo, isLinkSafePath, openLink, subtitleFileName, swapLink } from "../lib/player.js";
 import { loadToolbarSession } from "../lib/session.js";
 import { defaultLanguage, findLanguage, LANGUAGES } from "../lib/languages.js";
 import {
@@ -278,6 +278,26 @@ test("the popup lists subtitles for the right video", async (t) => {
 
   nowPlaying = undefined;
   assert.equal((await loadToolbarSession()).helperReady, false);
+});
+
+test("builds the links PotPlayer understands", () => {
+  const video = "https://x.example/d/Show%20S3%20-%2004.mkv?t=1";
+  const path = "C:\\Users\\sam\\Downloads\\PotDl\\s.Arabic.ass";
+  const open = openLink(video, path);
+  assert.equal(open, `potplayer:${video}%20/sub=${path}`);
+  assert.equal(openLink(video), `potplayer:${video}`);
+  assert.equal(swapLink(path), `potplayer:${path}%20/current`);
+
+  // Chrome must leave the link as it is, or PotPlayer ignores the subtitle.
+  assert.equal(new URL(open).href, open);
+});
+
+test("spots folders PotPlayer can't read subtitles from", () => {
+  assert.equal(isLinkSafePath("C:\\Users\\sam\\Downloads\\PotDl\\subtitle-1.Arabic.ass"), true);
+  assert.equal(isLinkSafePath("D:\\Files_2\\PotDl\\subtitle-1.Portuguese-Brazil.srt"), true);
+  assert.equal(isLinkSafePath("C:\\Users\\John Doe\\Downloads\\PotDl\\s.ass"), false);
+  assert.equal(isLinkSafePath("C:\\Users\\أحمد\\Downloads\\PotDl\\s.ass"), false);
+  assert.equal(isLinkSafePath("C:\\Users\\a%20b\\s.ass"), false);
 });
 
 test("names subtitle files after their language", () => {
